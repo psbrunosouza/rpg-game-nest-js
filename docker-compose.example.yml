@@ -1,0 +1,21 @@
+version: '3.9'
+
+services:
+  db:
+    container_name: rpg-game-container
+    image: postgres
+    restart: always
+    shm_size: 128mb
+    ports:
+      - 5200:5432
+    environment:
+      POSTGRES_PASSWORD: 
+      POSTGRES_USER: 
+      POSTGRES_DB: 
+
+  adminer:
+    container_name: adminer-container
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
