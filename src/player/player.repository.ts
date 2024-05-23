@@ -23,4 +23,16 @@ export class PlayerRepository implements IPlayerRepository {
       },
     });
   }
+
+  findMany(): Promise<PlayerDTO[]> {
+    return this.repository.findMany();
+  }
+
+  async delete(id: number): Promise<void> {
+    await this.repository.delete({
+      where: {
+        id,
+      },
+    });
+  }
 }

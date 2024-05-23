@@ -7,29 +7,18 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Game {
-  id        Int      @id @default(autoincrement())
-  isStarted Boolean  @default(false)
-  players   Player[]
-  enemies   Enemy[]
-}
-
 model Player {
-  id     Int    @id @default(autoincrement())
-  name   String @default("")
-  life   Int
-  power  Int
-  armor  Int
-  Game   Game?  @relation(fields: [gameId], references: [id])
-  gameId Int?
+  id    Int    @id @default(autoincrement())
+  name  String @default("")
+  life  Int
+  power Int
+  armor Int
 }
 
 model Enemy {
-  id     Int    @id @default(autoincrement())
-  name   String
-  life   Int
-  power  Int
-  armor  Int
-  Game   Game?  @relation(fields: [gameId], references: [id])
-  gameId Int?
+  id    Int    @id @default(autoincrement())
+  name  String
+  life  Int
+  power Int
+  armor Int
 }

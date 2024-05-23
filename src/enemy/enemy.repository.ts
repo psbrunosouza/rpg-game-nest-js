@@ -16,7 +16,11 @@ export class EnemyRepository implements IEnemyRepository {
     });
   }
 
-  findById(id: number): Promise<EnemyDTO> {
+  findOne(id: number): Promise<EnemyDTO> {
     return this.repository.findUnique({ where: { id } });
+  }
+
+  findMany(): Promise<EnemyDTO[]> {
+    return this.repository.findMany();
   }
 }

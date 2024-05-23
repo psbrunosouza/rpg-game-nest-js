@@ -1,4 +1,11 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Param,
+  ParseIntPipe,
+  Post,
+} from '@nestjs/common';
 import { CreateEnemyDTO } from './dtos/create-enemy.dto';
 import { EnemyService } from './enemy.service';
 
@@ -12,7 +19,12 @@ export class EnemyController {
   }
 
   @Get(':id')
-  find(@Param('id') id: string) {
-    return this.enemyService.findById(+id);
+  findOne(@Param('id', ParseIntPipe) id: number) {
+    return this.enemyService.findOne(id);
+  }
+
+  @Get()
+  findMany() {
+    return this.enemyService.findMany();
   }
 }

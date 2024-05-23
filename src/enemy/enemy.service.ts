@@ -7,11 +7,15 @@ import { EnemyRepository } from './enemy.repository';
 export class EnemyService {
   constructor(private enemyRepository: EnemyRepository) {}
 
-  async create(enemy: CreateEnemyDTO): Promise<EnemyDTO> {
+  create(enemy: CreateEnemyDTO): Promise<EnemyDTO> {
     return this.enemyRepository.create(enemy);
   }
 
-  async findById(id: number): Promise<EnemyDTO> {
-    return this.enemyRepository.findById(id);
+  findOne(id: number): Promise<EnemyDTO> {
+    return this.enemyRepository.findOne(id);
+  }
+
+  findMany(): Promise<EnemyDTO[]> {
+    return this.enemyRepository.findMany();
   }
 }

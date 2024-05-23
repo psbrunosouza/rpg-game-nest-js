@@ -13,4 +13,12 @@ export class PlayerService {
   findOne(id: number): Promise<PlayerDTO> {
     return this.playerRepository.findOne(id);
   }
+
+  findMany(): Promise<PlayerDTO[]> {
+    return this.playerRepository.findMany();
+  }
+
+  delete(id: number): Promise<void> {
+    return this.playerRepository.delete(id);
+  }
 }
